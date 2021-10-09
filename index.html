@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <div class="container" id="app">
+        <img src="./assets/images/512px-Vue.js_Logo_2.svg.png" alt="">
+        <!-- Calling for parent component -->
+        <Pare></Pare>
+        
+    </div>
+    <!-- Parente template -->
+    <script type="text/x-template" id="pare-template">
+        <div class="pare" id="pare">
+            <p>Component Pare</p>
+            <!-- calling for child component -->
+            <Fill v-for="item in items" :name="item" :key="item.id"></Fill> 
+            
+        </div>
+    </script>
+    <!-- Child template -->
+    <script type="text/x-template" id="fill-template">
+        <div class="item" id="fill">
+            <p>{{ name }}</p>
+            <button @click="counter++">{{ counter }}</button>
+        </div>
+    </script>
+    
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="./components/Fill.js"></script>
+    <script src="./components/Pare.js"></script>
+    <script>
+        // Vue root instance
+        new Vue({
+            el: '#app',
+            // The data is moved to the parent component
+            // data: {
+            //     items: ["item 1", "item 2", "item 3"]
+            // }
+        })
+    </script>
+
+</body>
+
+</html>
